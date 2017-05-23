@@ -19,9 +19,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginStart="10dp"
-        android:elevation="5dp"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="5dp"
         tools:ignore="UnusedAttribute"
         >
 
@@ -37,12 +34,20 @@
 
                 <ImageView
                     android:id="@+id/item_promotion_image"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:scaleType="fitXY"
                     />
                 <ImageView
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/favorite"
                     android:id="@+id/item_promotion_favorite"/>
 
             </RelativeLayout>
@@ -51,24 +56,32 @@
                 android:id="@+id/item_hero_separator"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/colorAccent"/>
+                android:background="@color/background"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 >
                 <TextView
                     android:id="@+id/item_promotion_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/name_promotion"
                     android:text="testrsjb"
-
                     />
                 <TextView
                     android:id="@+id/item_promotion_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/dot_light_screen"
+                    android:textSize="14sp"
                     android:text="dshhhf"
                     />
 

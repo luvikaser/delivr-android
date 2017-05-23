@@ -2,6 +2,8 @@
     <string name="app_name">LaModaFashion</string>
     <string name="retry">Retry</string>
     <string name="button_start_intro">Get Started</string>
+    <string name="promotion_page_title">Promotion Product</string>
+    <string name="product">Products</string>
     <string name="slide_1_title">WISHING FOR SUMMER</string>
     <string name="slide_1_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
 
