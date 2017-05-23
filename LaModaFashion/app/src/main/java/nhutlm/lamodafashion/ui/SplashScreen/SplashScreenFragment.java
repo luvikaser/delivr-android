@@ -39,6 +39,7 @@ public class SplashScreenFragment extends RuntimePermissionFragment {
     @BindView(R.id.slogan)
     TextView slogan;
 
+
     private boolean checkGrantedPermissionReadExternal() {
 //        return isPermissionGranted(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
 //                        Manifest.permission.WRITE_EXTERNAL_STORAGE},

@@ -2,6 +2,7 @@ package nhutlm.lamodafashion.ui.Intro;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,26 +34,12 @@ public class IntroFragment extends BaseFragment {
     @BindView(R.id.layoutDots)
     LinearLayout dotsLayout;
 
-    @BindView(R.id.btn_skip)
-    Button btnSkip;
+    @BindView(R.id.btnStart)
+    Button btnStart;
 
-    @BindView(R.id.btn_next)
-    Button btnNext;
-
-    @OnClick(R.id.btn_skip)
-    void onClickSkip(View v){
-        launchHomeScreen();
-    }
-
-    @OnClick(R.id.btn_next)
-    void onClickNext(View v){
-        int current = viewPager.getCurrentItem() + 1;
-        if (current < layouts.length) {
-            // move to next screen
-            viewPager.setCurrentItem(current);
-        } else {
-            launchHomeScreen();
-        }
+    @OnClick(R.id.btnStart)
+    void onClick(View v){
+        ((IntroActivity)getActivity()).launchHomeScreen();
     }
 
     private TextView[] dots;
@@ -87,25 +74,34 @@ public class IntroFragment extends BaseFragment {
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+
+        Typeface face = Typeface.createFromAsset(getContext().getAssets(), "fonts/font1.ttf");
+        btnStart.setTypeface(face);
+    }
+
+    public static int getColorWrapper(Context context, int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return context.getColor(id);
+        } else {
+            //noinspection deprecation
+            return context.getResources().getColor(id);
+        }
     }
 
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
-
-        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
-        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
 
         dotsLayout.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(getActivity());
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(colorsInactive[currentPage]);
+            dots[i].setTextColor(getColorWrapper(getActivity(), R.color.dot_dark_screen));
             dotsLayout.addView(dots[i]);
         }
 
         if (dots.length > 0)
-            dots[currentPage].setTextColor(colorsActive[currentPage]);
+            dots[currentPage].setTextColor(getColorWrapper(getActivity(), R.color.dot_light_screen));
     }
 
     private void changeStatusBarColor() {
@@ -121,17 +117,6 @@ public class IntroFragment extends BaseFragment {
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
-
-            // changing the next button text 'NEXT' / 'GOT IT'
-            if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
-                btnNext.setText("Start");
-                btnSkip.setVisibility(View.GONE);
-            } else {
-                // still pages are left
-                btnNext.setText("Next");
-                btnSkip.setVisibility(View.VISIBLE);
-            }
         }
 
         @Override
@@ -144,9 +129,7 @@ public class IntroFragment extends BaseFragment {
 
         }
     };
-    private void launchHomeScreen() {
-        ((IntroActivity)getActivity()).prefManager.setFirstTimeLaunch(false);
-    }
+
 
     public class MyViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
@@ -159,6 +142,14 @@ public class IntroFragment extends BaseFragment {
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View view = layoutInflater.inflate(layouts[position], container, false);
+            TextView title = (TextView) view.findViewById(R.id.title);
+            TextView desc = (TextView) view.findViewById(R.id.desc);
+
+            Typeface face = Typeface.createFromAsset(getContext().getAssets(), "fonts/font1.ttf");
+            title.setTypeface(face);
+            desc.setTypeface(face);
+            title.setScaleX(1.1f);
+            desc.setScaleX(1.05f);
             container.addView(view);
 
             return view;
