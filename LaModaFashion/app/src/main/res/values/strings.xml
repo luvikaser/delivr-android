@@ -2,7 +2,7 @@
     <string name="app_name">LaModaFashion</string>
     <string name="retry">Retry</string>
     <string name="button_start_intro">Get Started</string>
-    <string name="promotion_page_title">Promotion Product</string>
+    <string name="promotion_page_title">Promotions</string>
     <string name="mess_no_product">You do not have any promotion products.</string>
     <string name="mess_no_internet">No internet connection.</string>
 
@@ -18,4 +18,9 @@
 
     <string name="slide_4_title">WISHING FOR SUMMER</string>
     <string name="slide_4_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+
+    <string name="category_text">CATEGORY:</string>
+    <string name="market_text">MARKET:</string>
+    <string name="price_text">PRICE:</string>
+    <string name="product_detail_text">PRODUCT DETAIL</string>
 </resources>

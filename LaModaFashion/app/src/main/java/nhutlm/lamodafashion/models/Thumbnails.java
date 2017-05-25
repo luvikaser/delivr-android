@@ -2,17 +2,19 @@ package nhutlm.lamodafashion.models;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
+
 /**
  * Created by cpu1-216-local on 23/05/2017.
  */
 
-public class Thumbnails {
+public class Thumbnails  implements Serializable {
     @Expose
     private Image small;
     @Expose
     private Image large;
 
-    public class Image{
+    public class Image implements Serializable{
         @Expose
         private String url;
         @Expose

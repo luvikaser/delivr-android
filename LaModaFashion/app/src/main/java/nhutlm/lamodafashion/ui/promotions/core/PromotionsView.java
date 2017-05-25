@@ -31,6 +31,7 @@ import rx.Observable;
 public class PromotionsView extends BaseFragment {
     @Inject
     PromotionsPresenter presenter;
+
     @BindView(R.id.activity_promotions_list_recycleview)
     RecyclerView list;
     @BindView(R.id.swipeRefreshLayout)
@@ -78,7 +79,9 @@ public class PromotionsView extends BaseFragment {
     public void swapAdapter(ArrayList<Promotion> promotions)
     {
         adapter.swapAdapter(promotions);
-        countProducts.setText(promotions.size() + " " + getActivity().getString(R.string.product));
+        if (countProducts != null) {
+            countProducts.setText(promotions.size() + " " + getActivity().getString(R.string.product));
+        }
     }
 
     @Override

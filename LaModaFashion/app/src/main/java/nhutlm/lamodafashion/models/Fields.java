@@ -2,12 +2,13 @@ package nhutlm.lamodafashion.models;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by cpu1-216-local on 23/05/2017.
  */
-public class Fields {
+public class Fields implements Serializable {
     @Expose
     private String Link;
     @Expose
@@ -28,6 +29,17 @@ public class Fields {
     private String Description;
     @Expose
     private List<Picture> Picture;
+
+    public List<String> getMarket() {
+        return Market;
+    }
+
+    public void setMarket(List<String> market) {
+        Market = market;
+    }
+
+    @Expose
+    private List<String> Market;
     @Expose
     private String createdTime;
 

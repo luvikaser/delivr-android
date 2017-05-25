@@ -1,10 +1,14 @@
 package nhutlm.lamodafashion.ui.promotions.core;
 
 import android.app.Activity;
+import android.content.Intent;
+
+import java.io.Serializable;
 
 import nhutlm.lamodafashion.api.PromotionApi;
 import nhutlm.lamodafashion.models.Promotion;
 import nhutlm.lamodafashion.models.Promotions;
+import nhutlm.lamodafashion.ui.promotion.PromotionActivity;
 import nhutlm.lamodafashion.utils.NetworkUtils;
 import rx.Observable;
 
@@ -33,7 +37,9 @@ public class PromotionsModel {
 
 
     public void gotoPromotionDetailsActivity(Promotion promotion) {
-       // ((PromotionsView)context).goToPromotionDetailsActivity(promotion);
+        Intent in = new Intent(context, PromotionActivity.class);
+        in.putExtra("promotion", (Serializable) promotion);
+        context.startActivity(in);
     }
 
 }

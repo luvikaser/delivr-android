@@ -60,8 +60,7 @@ public class PromotionsPresenter {
 
     private Subscription getPromotions() {
         return model.isNetworkAvailable().doOnNext(networkAvailable -> {
-            if (!networkAvailable) {
-                view.messPromotion.setVisibility(View.VISIBLE);
+            if (!networkAvailable && view.messPromotion != null && view.mSwipeRefreshLayout != null) {
                 view.swapAdapter(new ArrayList<Promotion>());
                 view.messPromotion.setText(model.context.getString(R.string.mess_no_internet));
                 view.mSwipeRefreshLayout.setRefreshing(false);
@@ -72,16 +71,18 @@ public class PromotionsPresenter {
                 flatMap(isAvailable -> model.providePromotions()).
                 subscribeOn(rxSchedulers.internet()).
                 observeOn(rxSchedulers.androidThread()).subscribe(promotions -> {
-                    if (promotions.getRecords().size() == 0) {
+                    if (promotions.getRecords().size() == 0 && view.messPromotion != null) {
                         view.messPromotion.setVisibility(View.VISIBLE);
                         view.messPromotion.setText(model.context.getString(R.string.mess_no_product));
                     }
                     view.swapAdapter((ArrayList<Promotion>) promotions.getRecords());
                     promotionsList = (ArrayList<Promotion>) promotions.getRecords();
-                    view.mSwipeRefreshLayout.setRefreshing(false);
+                    if (view.mSwipeRefreshLayout != null)
+                        view.mSwipeRefreshLayout.setRefreshing(false);
                 }, throwable -> {
                     view.swapAdapter(new ArrayList<Promotion>());
-                    view.mSwipeRefreshLayout.setRefreshing(false);
+                    if (view.mSwipeRefreshLayout != null)
+                        view.mSwipeRefreshLayout.setRefreshing(false);
                     UiUtils.handleThrowable(throwable);
                 }
         );
