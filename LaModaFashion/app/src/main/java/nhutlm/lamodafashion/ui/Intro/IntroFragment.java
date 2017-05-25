@@ -88,7 +88,7 @@ public class IntroFragment extends BaseFragment {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                if (currentPage < layouts.length)
+                if (currentPage < layouts.length - 1)
                     viewPager.setCurrentItem(++currentPage, true);
             }
 
