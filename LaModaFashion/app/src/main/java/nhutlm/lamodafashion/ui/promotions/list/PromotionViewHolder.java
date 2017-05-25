@@ -53,8 +53,6 @@ public class PromotionViewHolder extends RecyclerView.ViewHolder {
 
     void bind(Promotion promotion) {
           Glide.with(view.getContext()).load(promotion.getFields().getPicture().get(0).getThumbnails().getLarge().getUrl()).into(imagePromotion);
-
-
           namePromotion.setText(TextUtils.isEmpty(promotion.getFields().getName()) ? "missing title" : promotion.getFields().getName());
           pricePromotion.setText(TextUtils.isEmpty(promotion.getFields().getPrice()) ? "missing year" : promotion.getFields().getCurrency() + promotion.getFields().getPrice());
           Typeface face1 = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/font1.ttf");

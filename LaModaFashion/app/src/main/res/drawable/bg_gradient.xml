@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/pic1"/>
-    </item>
-    <item>
+       <item>
         <shape>
             <gradient
                 android:angle="90"
-                android:endColor="@color/transparent"
-                android:startColor="@color/themeLightPrimary"
+                android:endColor="@color/themePrimary"
+                android:startColor="@color/dot_dark_screen"
                 android:type="linear" />
         </shape>
     </item>

@@ -7,8 +7,8 @@
     <style name="MyMaterialTheme.NoAnimation" parent="MyMaterialTheme"></style>
 
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -17,6 +17,8 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:spinnerDropDownItemStyle">@style/mySpinner</item>
+        <item name="android:statusBarColor">@color/background_tab</item>
+
     </style>
 
     <style name="mySpinner" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
@@ -35,15 +37,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <!-- ToolBar -->
-    <style name="ToolBarSearchStyle" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="actionMenuTextColor">@android:color/white</item>
-        <item name="android:textColorHint">@android:color/white</item>
-        <item name="android:homeAsUpIndicator">@null</item>
-    </style>
 
     <!--Them for splash screen-->
     <style name="MyMaterialTheme.CenterAnimation">

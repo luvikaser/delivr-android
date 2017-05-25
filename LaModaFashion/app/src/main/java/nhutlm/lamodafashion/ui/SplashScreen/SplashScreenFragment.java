@@ -26,9 +26,9 @@ import nhutlm.lamodafashion.ui.base.RuntimePermissionFragment;
 
 public class SplashScreenFragment extends RuntimePermissionFragment {
 
-    public static final int STARTUP_DELAY = 300;
+    public static final int STARTUP_DELAY = 200;
     public static final int ANIM_ITEM_DURATION = 500;
-    public static final int ITEM_DELAY = 500;
+    public static final int ITEM_DELAY = 300;
 
     @BindView(R.id.img_logo)
     ImageView logoImageView;
@@ -51,7 +51,7 @@ public class SplashScreenFragment extends RuntimePermissionFragment {
         Typeface face = Typeface.createFromAsset(getContext().getAssets(), "fonts/font.ttf");
         slogan.setTypeface(face);
         ViewCompat.animate(logoImageView)
-                .translationY(-20)
+                .translationY(-30)
                 .setStartDelay(STARTUP_DELAY)
                 .setDuration(ANIM_ITEM_DURATION).setInterpolator(
                 new DecelerateInterpolator(1.2f)).start();
@@ -62,7 +62,7 @@ public class SplashScreenFragment extends RuntimePermissionFragment {
 
             if (!(v instanceof Button)) {
                 viewAnimator = ViewCompat.animate(v)
-                        .translationY(50).alpha(1)
+                        .translationY(60).alpha(1)
                         .setStartDelay((ITEM_DELAY * i) + 500)
                         .setDuration(1000);
             } else {

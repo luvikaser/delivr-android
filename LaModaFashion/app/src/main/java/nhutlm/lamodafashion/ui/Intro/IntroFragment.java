@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,7 +43,7 @@ public class IntroFragment extends BaseFragment {
         ((IntroActivity)getActivity()).launchHomeScreen();
     }
 
-    private TextView[] dots;
+    private ImageView[] dots;
     private int[] layouts;
     private MyViewPagerAdapter myViewPagerAdapter;
 
@@ -89,21 +90,20 @@ public class IntroFragment extends BaseFragment {
     }
 
     private void addBottomDots(int currentPage) {
-        dots = new TextView[layouts.length];
+        dots = new ImageView[layouts.length];
 
         dotsLayout.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getActivity());
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(getColorWrapper(getActivity(), R.color.dot_dark_screen));
-            dotsLayout.addView(dots[i]);
+            dots[i] = new ImageView(getActivity());
+            dots[i].setImageResource(R.drawable.dot_unselect);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(35, 35);
+            params.setMargins(0, 0, 8, 0);
+            dotsLayout.addView(dots[i], params);
         }
 
         if (dots.length > 0)
-            dots[currentPage].setTextColor(getColorWrapper(getActivity(), R.color.dot_light_screen));
+            dots[currentPage].setImageResource(R.drawable.dot_select);
     }
-
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();

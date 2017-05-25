@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="@color/background_tab"
-        app:tabIndicatorColor="#00ffffff"
+        app:tabIndicatorColor="@color/transparent"
         />
 
 </LinearLayout>
