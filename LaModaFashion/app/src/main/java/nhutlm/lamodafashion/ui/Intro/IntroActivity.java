@@ -1,14 +1,11 @@
 package nhutlm.lamodafashion.ui.Intro;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 
-import nhutlm.lamodafashion.R;
 import nhutlm.lamodafashion.ui.base.BaseActivity;
 import nhutlm.lamodafashion.ui.base.BaseFragment;
-import nhutlm.lamodafashion.ui.promotions.PromotionsActivity;
+import nhutlm.lamodafashion.ui.main.MainActivity;
 import nhutlm.lamodafashion.utils.PrefManager;
 
 /**
@@ -37,7 +34,7 @@ public class IntroActivity extends BaseActivity {
 
     public void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        Intent intent = new Intent(this, PromotionsActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

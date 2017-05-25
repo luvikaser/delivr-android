@@ -1,9 +1,10 @@
 package nhutlm.lamodafashion.ui.promotions.core;
 
+import android.app.Activity;
+
 import nhutlm.lamodafashion.api.PromotionApi;
 import nhutlm.lamodafashion.models.Promotion;
 import nhutlm.lamodafashion.models.Promotions;
-import nhutlm.lamodafashion.ui.promotions.PromotionsActivity;
 import nhutlm.lamodafashion.utils.NetworkUtils;
 import rx.Observable;
 
@@ -12,10 +13,10 @@ import rx.Observable;
  */
 
 public class PromotionsModel {
-    PromotionsActivity context;
+    Activity context;
     PromotionApi api;
 
-    public PromotionsModel(PromotionsActivity context, PromotionApi api) {
+    public PromotionsModel(Activity context, PromotionApi api) {
         this.api = api;
         this.context = context;
     }
@@ -32,7 +33,7 @@ public class PromotionsModel {
 
 
     public void gotoPromotionDetailsActivity(Promotion promotion) {
-        context.goToPromotionDetailsActivity(promotion);
+       // ((PromotionsView)context).goToPromotionDetailsActivity(promotion);
     }
 
 }

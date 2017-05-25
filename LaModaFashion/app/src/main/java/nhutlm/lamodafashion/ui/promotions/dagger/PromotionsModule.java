@@ -1,9 +1,11 @@
 package nhutlm.lamodafashion.ui.promotions.dagger;
 
+import android.app.Activity;
+import android.content.Context;
+
 import dagger.Module;
 import dagger.Provides;
 import nhutlm.lamodafashion.api.PromotionApi;
-import nhutlm.lamodafashion.ui.promotions.PromotionsActivity;
 import nhutlm.lamodafashion.ui.promotions.core.PromotionsModel;
 import nhutlm.lamodafashion.ui.promotions.core.PromotionsPresenter;
 import nhutlm.lamodafashion.ui.promotions.core.PromotionsView;
@@ -15,10 +17,10 @@ import rx.subscriptions.CompositeSubscription;
  */
 @Module
 public class PromotionsModule {
-    PromotionsActivity context;
+    PromotionsView view;
 
-    public PromotionsModule(PromotionsActivity context) {
-        this.context = context;
+    public PromotionsModule(PromotionsView view) {
+        this.view = view;
     }
 
 
@@ -26,7 +28,7 @@ public class PromotionsModule {
     @PromotionsScope
     @Provides
     PromotionsView provideView() {
-        return new PromotionsView(context);
+        return view;
     }
 
     @PromotionsScope
@@ -38,13 +40,13 @@ public class PromotionsModule {
 
     @PromotionsScope
     @Provides
-    PromotionsActivity provideContext() {
-        return context;
+    Context provideContext() {
+        return view.getActivity();
     }
 
     @PromotionsScope
     @Provides
     PromotionsModel provideModel(PromotionApi api) {
-        return new PromotionsModel(context, api);
+        return new PromotionsModel(view.getActivity(), api);
     }
 }

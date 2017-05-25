@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/pic4"/>
+    </item>
     <item>
         <shape>
             <gradient
                 android:angle="90"
-                android:centerX="0.2"
-                android:centerY="0.3"
                 android:endColor="@color/themePrimary"
                 android:startColor="@color/themeLightPrimary"
                 android:type="linear" />
         </shape>
     </item>
-</selector>
+</layer-list>

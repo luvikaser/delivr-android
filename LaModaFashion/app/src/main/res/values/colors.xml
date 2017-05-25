@@ -18,4 +18,5 @@
     <color name="background">#F3F2EE</color>
     <color name="name_promotion">#656867</color>
     <color name="background_title_promotion">#D0ffffff</color>
+    <color name="background_tab">#2C323F</color>
 </resources>

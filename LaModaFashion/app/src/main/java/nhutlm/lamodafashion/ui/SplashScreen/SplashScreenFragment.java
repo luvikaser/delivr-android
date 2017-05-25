@@ -28,7 +28,7 @@ public class SplashScreenFragment extends RuntimePermissionFragment {
 
     public static final int STARTUP_DELAY = 300;
     public static final int ANIM_ITEM_DURATION = 500;
-    public static final int ITEM_DELAY = 300;
+    public static final int ITEM_DELAY = 500;
 
     @BindView(R.id.img_logo)
     ImageView logoImageView;
