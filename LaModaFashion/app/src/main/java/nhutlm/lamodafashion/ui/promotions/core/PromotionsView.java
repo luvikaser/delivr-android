@@ -65,7 +65,11 @@ public class PromotionsView extends BaseFragment {
 
             }
         });
-
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
         presenter.onCreate();
 
     }

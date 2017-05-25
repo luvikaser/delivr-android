@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -18,6 +20,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.OnClick;
 import nhutlm.lamodafashion.R;
@@ -46,7 +51,7 @@ public class IntroFragment extends BaseFragment {
     private ImageView[] dots;
     private int[] layouts;
     private MyViewPagerAdapter myViewPagerAdapter;
-
+    private int currentPage = 0;
     @Override
     protected void setupFragmentComponent() {
 
@@ -78,6 +83,20 @@ public class IntroFragment extends BaseFragment {
 
         Typeface face = Typeface.createFromAsset(getContext().getAssets(), "fonts/font1.ttf");
         btnStart.setTypeface(face);
+
+        new CountDownTimer(12000, 3000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if (currentPage < layouts.length)
+                    viewPager.setCurrentItem(++currentPage, true);
+            }
+
+            @Override
+            public void onFinish() {
+                ((IntroActivity)getActivity()).launchHomeScreen();
+            }
+            }.start();
     }
 
     public static int getColorWrapper(Context context, int id) {
